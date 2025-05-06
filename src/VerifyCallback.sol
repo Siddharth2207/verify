@@ -10,7 +10,7 @@ import {OwnableUpgradeable as Ownable} from "openzeppelin-contracts-upgradeable/
 /// to define logic for.
 contract VerifyCallback is IVerifyCallbackV1, Ownable {
     function verifyCallbackInit() internal onlyInitializing {
-        __Ownable_init();
+        __Ownable_init(msg.sender);
     }
 
     function afterAdd(
