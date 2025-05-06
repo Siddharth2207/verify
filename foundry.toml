@@ -1,4 +1,7 @@
 [profile.default]
+src = 'src'
+out = 'out'
+libs = ['lib']
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
 
@@ -6,4 +9,12 @@ solc = "0.8.25"
 optimizer = false
 optimizer_runs = 100000
 
-fuzz.runs = 2056
+# pre push0 for maximum compatibility
+evm_version = "paris"
+
+# Build metadata used for testing rain meta aware contracts in this folder rather
+# than expose ffi to forge.
+fs_permissions = [{ access = "read", path = "./meta"}]
+
+[fuzz]
+runs = 2048
